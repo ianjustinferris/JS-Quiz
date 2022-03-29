@@ -1,0 +1,144 @@
+h1 {
+  color: #fff;
+  /* margin-left: 2vw; */
+}
+
+h2 {
+  cursor: pointer;
+  color: #fff;
+  margin-left: 3vw;
+}
+
+.fa-brands {
+  color: rgb(216, 216, 81);
+  margin-right: 1vw;
+}
+
+.navbar {
+  border-bottom: rgb(145, 235, 0) solid 0.3vw;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#mainContent {
+  margin-top: 0vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* border: rgb(73, 75, 78) solid 2px; */
+  min-width: 20vw;
+  min-height: 25vw;
+  border-radius: 12px;
+}
+
+#timer {
+  margin-top: 5vw;
+  /* border: red solid 2px; */
+  font-size: 15vw;
+}
+#quizScore {
+  margin-top: 4vw;
+  /* border: red solid 2px; */
+  font-size: 12vw;
+}
+
+#quizScore {
+  display: none;
+}
+
+#quizScore {
+  margin-top: 4vw;
+  /* border: red solid 2px; */
+  font-size: 8vw;
+}
+
+#quizScore {
+  display: none;
+}
+
+#timer {
+  display: none;
+}
+
+#startBtn {
+  /* background-color: rgb(216, 216, 81); */
+  min-width: 19vw;
+  min-height: 8vw;
+  font-size: 5vw;
+}
+
+#quiz {
+  display: none;
+}
+
+#quiz {
+  /* display: flex;
+  align-items: center; */
+  width: 75vw;
+  height: 38vw;
+  color: black;
+  /* border: red solid 1px; */
+  background-color: rgb(236, 236, 236);
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.068),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+h3 {
+  font-size: 4vw;
+}
+
+#questionContainer {
+  display: flex;
+  flex-direction: column;
+
+  align-items: baseline;
+  justify-content: flex-start;
+  font-size: 3vw;
+  /* border: red solid; */
+  width: 65vw;
+  height: 40vw;
+}
+
+p1 {
+  margin: 0.5vw;
+  /* color: #fff; */
+}
+
+#question {
+  font-weight: bold;
+  margin-bottom: 1.5vw;
+  margin-top: 2vw;
+}
+
+#boxA,
+#boxB,
+#boxC,
+#boxD {
+  cursor: pointer;
+  display: inline-block;
+  width: 2.5vw;
+  height: 2.5vw;
+  background-color: #fff;
+  border: 3px solid #494949;
+  margin-right: 3vw;
+}
+
+#mainTimer {
+  display: none;
+}
+
+#mainTimer {
+  color: rgb(20, 17, 13);
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  font-size: 2vw;
+  font-weight: bold;
+}
