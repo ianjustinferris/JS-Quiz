@@ -124,11 +124,11 @@ p1 {
 #boxD {
   cursor: pointer;
   display: inline-block;
-  width: 2.5vw;
-  height: 2.5vw;
+  width: 3vw;
+  height: 3vw;
   background-color: #fff;
-  border: 3px solid #494949;
-  margin-right: 3vw;
+  border: 2px solid #494949;
+  margin-right: 2.5vw;
 }
 
 #mainTimer {
@@ -137,8 +137,8 @@ p1 {
 
 #mainTimer {
   color: rgb(20, 17, 13);
-  margin-top: 1vw;
-  margin-bottom: 1vw;
-  font-size: 2vw;
-  font-weight: bold;
+  margin-top: 0vw;
+  margin-bottom: 0vw;
+  font-size: 5vw;
+  /* font-weight: bold; */
 }

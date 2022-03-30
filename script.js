@@ -225,9 +225,9 @@ function mainCountDown(cancel){
     if (cancel===0){
         return;
     }
-    setTimeout(showScore,30000)
+    setTimeout(showScore,31000)
     mainTimer.style.display='block';
-    let seconds= 30;
+    let seconds= 31;
     if (seconds>0){
 BoxA.addEventListener('click',rightWrongA)
 BoxB.addEventListener('click',rightWrongB)
