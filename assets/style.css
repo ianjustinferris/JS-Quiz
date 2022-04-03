@@ -58,6 +58,13 @@ section {
   font-size: 8vw;
 }
 
+#highScore {
+  margin-top: 4vw;
+  /* border: red solid 2px; */
+  font-size: 4vw;
+  display: block;
+}
+
 #quizScore {
   display: none;
 }

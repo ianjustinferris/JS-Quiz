@@ -42,8 +42,13 @@ var scoreLog = document.getElementById("scoreLog")
 
 var seconds
 
-console.log(scoreLog)
+var score = []
 
+var scoreArray= []
+
+var getInitials= []
+
+var highScore = document.getElementById('highScore')
 
 
 const question1 = {
@@ -156,7 +161,7 @@ const question11 = {
 }
 
 const question12 = {
-    Question: "What is array syntax?",
+    Question: "What is proper array syntax?",
     A: "var colors = 'red','green',... ",
     B: "var colors = ['red', 'green',...]",
     C: "var colors =(1:'red',2:'green',...)",
@@ -167,18 +172,41 @@ const question12 = {
 
 
 
- questionArray.push(question1,question2,question3,question4,question5,question6,question7,question8,question9,question10,question11,question12)
+ questionArray.push(question1,question2,question3,question4,question5,question6,question7,question8,question9,question10,question11,question12,"end")
+
+function storeScore(){
+   newHigh  = localStorage.getItem('score',scoreArray)
+    console.log(scoreArray)
+   localStorage.getItem('score',scoreArray)
+   localStorage.setItem('score',scoreArray)
+   highScore.innerHTML = JSON.parse(newHigh)
+    quizScore.style.display = 'none';
+
+}
 
 
+function promptLog() {
+    console.log(score)
+    let getInitials = prompt("Enter your initials to log your score:")
+    if (getInitials !== null||'' ){ 
+        scoreArray.push(JSON.stringify(getInitials)+JSON.stringify(score)+JSON.stringify('%'))
+        console.log(scoreArray)
+        storeScore()
+    } else {
+        return;
+    }
+    
+}
 
 function showScore() {
     
+    setTimeout(promptLog,1500)
     mainTimer.style.display='none';
     quizScore.style.display = 'block';
     quiz.style.display = 'none';
     quizScore.textContent = "Score: " + Math.round(((arrayRight.length)/11)*100) + "%";
-   
-   
+    score.push(Math.round(((arrayRight.length)/11)*100))
+    return score;
 }
 
   
@@ -196,8 +224,8 @@ function newQuiz () {
 
 
 function countDown (){
-    let seconds= 4
-    if (seconds>0){
+    let seconds = 4
+    if (seconds > 0){
   myTimer = setInterval(()=>{
     seconds--;
     timer.innerHTML = seconds
@@ -211,7 +239,7 @@ function countDown (){
 
 function quizStart() {
     mainCountDown()
-    
+   
 quiz.style.display = 'block'
 question.textContent=questionArray[counter].Question
     A.textContent=questionArray[counter].A
@@ -221,36 +249,76 @@ question.textContent=questionArray[counter].Question
 }
 
 
+
 function mainCountDown(cancel){
     if (cancel===0){
         return;
     }
-    setTimeout(showScore,31000)
+
+
     mainTimer.style.display='block';
+    
     let seconds= 31;
-    if (seconds>0){
+    
+        function timeDeductA () {
+    if (A.textContent!==questionArray[counter].Correct){
+        seconds=seconds-2
+    }
+        }
+
+        function timeDeductB () {
+    if (B.textContent!==questionArray[counter].Correct){
+        seconds=seconds-2
+    }
+        }
+
+        function timeDeductC () {
+    if (C.textContent!==questionArray[counter].Correct){
+        seconds=seconds-2
+    }
+        }
+
+        function timeDeductD () {
+    if (D.textContent!==questionArray[counter].Correct){
+        seconds=seconds-2
+    }
+        }
+
+BoxA.addEventListener('click',timeDeductA)
+BoxB.addEventListener('click',timeDeductB)
+BoxC.addEventListener('click',timeDeductC)
+BoxD.addEventListener('click',timeDeductD)
+
+    
+        
+myTimer = setInterval(()=>{
+
 BoxA.addEventListener('click',rightWrongA)
 BoxB.addEventListener('click',rightWrongB)
 BoxC.addEventListener('click',rightWrongC)
 BoxD.addEventListener('click',rightWrongD)
-  myTimer = setInterval(()=>{
+
+
     seconds--;
     mainTimer.textContent = seconds
-    if (seconds<1) {
+    if (seconds===0 && counter<10) {
+        showScore()
         clearInterval(myTimer)
         mainTimer.style.display ='none'
     }
     },1000)
-} else {
+ 
 
-return;}
-}
+} 
+
+
+
 
 function rightWrongA() {
 
 if (counter>10){
     showScore()
-    mainCountdown(0)
+    mainCountDown(0)
      
 }
 if (A.textContent===questionArray[counter].Correct){
@@ -276,7 +344,7 @@ function rightWrongB() {
 
     if (counter>10){
     showScore()
-    mainCountdown(0)
+    mainCountDown(0)
      
 }
      
@@ -303,7 +371,7 @@ function rightWrongC() {
 
     if (counter>10){
     showScore()
-    mainCountdown(0)
+    mainCountDown(0)
      
 }
      
@@ -330,7 +398,7 @@ function rightWrongD() {
 
     if (counter>10){
     showScore()
-    mainCountdown(0)
+    mainCountDown(0)
     
 }
      
