@@ -50,6 +50,8 @@ var getInitials= []
 
 var highScore = document.getElementById('highScore')
 
+var   initials_Score = {}
+        
 
 const question1 = {
     Question: "Which HTML element is used with JavaScript?",
@@ -175,12 +177,22 @@ const question12 = {
  questionArray.push(question1,question2,question3,question4,question5,question6,question7,question8,question9,question10,question11,question12,"end")
 
 function storeScore(){
-   newHigh  = localStorage.getItem('score',scoreArray)
-    console.log(scoreArray)
-   localStorage.getItem('score',scoreArray)
-   localStorage.setItem('score',scoreArray)
-   highScore.innerHTML = JSON.parse(newHigh)
-    quizScore.style.display = 'none';
+
+highScore.style.display = 'block';
+quizScore.style.display = 'none';
+
+var scoreList = localStorage.getItem('scoreList');
+if (scoreList === null || ""){
+    scoreList=[]
+} else scoreList = JSON.parse(scoreList);
+
+scoreList.push(initials_Score)
+var newScore = JSON.stringify(scoreList);
+localStorage.setItem("scoreList",newScore)
+
+console.log(localStorage)
+
+scoreLog.innerHTML = JSON.parse(localStorage.getItem('scoreList'))
 
 }
 
@@ -188,15 +200,18 @@ function storeScore(){
 function promptLog() {
     console.log(score)
     let getInitials = prompt("Enter your initials to log your score:")
-    if (getInitials !== null||'' ){ 
-        scoreArray.push(JSON.stringify(getInitials)+JSON.stringify(score)+JSON.stringify('%'))
-        console.log(scoreArray)
-        storeScore()
+    if (getInitials === null||'' ){ 
+        return;     
     } else {
+        initials_Score = {
+            initials: getInitials,
+            score: score}
+        console.log(initials_Score)
+        storeScore()
         return;
     }
-    
 }
+
 
 function showScore() {
     

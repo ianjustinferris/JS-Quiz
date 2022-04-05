@@ -62,7 +62,11 @@ section {
   margin-top: 4vw;
   /* border: red solid 2px; */
   font-size: 4vw;
-  display: block;
+  display: none;
+}
+
+legend {
+  display: none;
 }
 
 #quizScore {
