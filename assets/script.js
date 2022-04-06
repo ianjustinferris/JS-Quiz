@@ -50,7 +50,7 @@ var getInitials= []
 
 var highScore = document.getElementById('highScore')
 
-var   initials_Score = {}
+var initials_Score = {}
         
 
 const question1 = {
@@ -181,10 +181,7 @@ function storeScore(){
 highScore.style.display = 'block';
 quizScore.style.display = 'none';
 
-var scoreList = localStorage.getItem('scoreList');
-if (scoreList === null || ""){
-    scoreList=[]
-} else scoreList = JSON.parse(scoreList);
+var scoreList = JSON.parse(localStorage.getItem('scoreList')) || [] ;
 
 scoreList.push(initials_Score)
 var newScore = JSON.stringify(scoreList);
@@ -192,9 +189,18 @@ localStorage.setItem("scoreList",newScore)
 
 console.log(localStorage)
 
-scoreLog.innerHTML = JSON.parse(localStorage.getItem('scoreList'))
+
+
+for (var i=0;i<scoreList.length;i++){
+    createList = document.createElement('li');
+    createList.textContent = scoreList[i].initials + " " + scoreList[i].score
+    scoreLog.appendChild(createList);
+}
 
 }
+
+
+
 
 
 function promptLog() {
