@@ -8,8 +8,6 @@ var question = document.getElementById("question")
 
 var timerInit = document.getElementById("timer")
 
-var question = document.getElementById("question")
-
 var A = document.getElementById("A")
 
 var B = document.getElementById("B")
@@ -180,6 +178,7 @@ function storeScore(){
 
 highScore.style.display = 'block';
 quizScore.style.display = 'none';
+scoreLog.style.display = 'block';
 // scoreLog.style.display = 'block'
 var scoreList = JSON.parse(localStorage.getItem('scoreList')) || [] ;
 
@@ -444,8 +443,11 @@ return {arrayRight, arrayWrong};
 }
 
 function progress(){
+    mainTimer.style.display = 'none'
+    quiz.style.display = 'none'
     startBtn.style.display= 'none'
     highScore.style.display = 'block';
+    scoreLog.style.display = 'block'
     var scoreList = JSON.parse(localStorage.getItem('scoreList')) || [] ;
 for (var i=0;i<scoreList.length;i++){
     createList = document.createElement('li');
@@ -461,6 +463,7 @@ startBtn.addEventListener('click',runQuiz)
 newQuizBtn.addEventListener('click', newQuiz)
 
 function runQuiz() {
+scoreLog.textContent = ''
 highScore.style.display = 'none';
 scoreLog.style.display = 'none';
     setTimeout(quizStart,4000)
