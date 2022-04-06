@@ -180,7 +180,7 @@ function storeScore(){
 
 highScore.style.display = 'block';
 quizScore.style.display = 'none';
-
+// scoreLog.style.display = 'block'
 var scoreList = JSON.parse(localStorage.getItem('scoreList')) || [] ;
 
 scoreList.push(initials_Score)
@@ -443,15 +443,26 @@ console.log(counter)
 return {arrayRight, arrayWrong}; 
 }
 
+function progress(){
+    startBtn.style.display= 'none'
+    highScore.style.display = 'block';
+    var scoreList = JSON.parse(localStorage.getItem('scoreList')) || [] ;
+for (var i=0;i<scoreList.length;i++){
+    createList = document.createElement('li');
+    createList.textContent = scoreList[i].initials + " " + scoreList[i].score
+    scoreLog.appendChild(createList);
+}
+}
 
+progressBtn.addEventListener('click',progress)
 
 startBtn.addEventListener('click', function(){setTimeout(mainCountDown,3000)})
 startBtn.addEventListener('click',runQuiz)
 newQuizBtn.addEventListener('click', newQuiz)
 
 function runQuiz() {
-
-   
+highScore.style.display = 'none';
+scoreLog.style.display = 'none';
     setTimeout(quizStart,4000)
 
     startBtn.style.display ='none';

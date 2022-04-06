@@ -61,7 +61,7 @@ section {
 #highScore {
   margin-top: 4vw;
   /* border: red solid 2px; */
-  font-size: 4vw;
+  font-size: 7vw;
   display: none;
 }
 
@@ -152,4 +152,12 @@ p1 {
   margin-bottom: 0vw;
   font-size: 5vw;
   /* font-weight: bold; */
+}
+
+#scoreLog {
+  font-size: 5vw;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
