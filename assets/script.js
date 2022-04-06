@@ -443,6 +443,7 @@ return {arrayRight, arrayWrong};
 }
 
 function progress(){
+    progressBtn.removeEventListener('click',progress)
     mainTimer.style.display = 'none'
     quiz.style.display = 'none'
     startBtn.style.display= 'none'
